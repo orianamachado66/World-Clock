@@ -50,6 +50,9 @@ setInterval(updateLisbonTime, 1000);
 
 function updateCity(event) {
   let cityTimeZone = event.target.value; // this goes to the value inside of each option in the select element, so we get the timezone for each city
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess(); // if the user selects the option with the value "current" the page will return their current timezone
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1]; // this line of code takes the time zone name, replaces underscores with spaces, splits it into separate parts using slashes, and then retrieves the second part, which is the name of the city. This city name is then stored in the cityName variable for further use.
   let cityTime = moment().tz(cityTimeZone); // getting the timezone for the selected city and storing it in a variable called cityTime
   let htmlCityDisplay = document.querySelector("#cities");
