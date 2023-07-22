@@ -1,20 +1,17 @@
 //Updating the real time and date for the three cities displayed on the page
 
-function updateLosAngelesTime(event) {
-  //Los Angeles
-  let losAngelesElement = document.querySelector("#los-angeles");
-  if (losAngelesElement.length) {
-    let losAngelesDateElement = losAngelesElement.querySelector(".date"); // this selects the class of date inside of the los-angeles id
-    let losAngelesTimeElement = losAngelesElement.querySelector(".time"); // this selects the class of time inside of the los-angeles id
-    let losAngelesTime = moment().tz("America/Los_Angeles");
-    losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM Do, YYYY");
-    losAngelesTimeElement.innerHTML = losAngelesTime.format(
-      "h:mm:ss [<small>]A[</small>]"
-    ); // This keeps the AM on the side and smaller
-  }
+function updateParisTime(event) {
+  //Paris
+  let parisElement = document.querySelector("#paris");
+
+  let parisDateElement = parisElement.querySelector(".date"); // this selects the class of date inside of the los-angeles id
+  let parisTimeElement = parisElement.querySelector(".time"); // this selects the class of time inside of the los-angeles id
+  let parisTime = moment().tz("Europe/Paris");
+  parisDateElement.innerHTML = parisTime.format("MMMM Do, YYYY");
+  parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]"); // This keeps the AM on the side and smaller
 }
-updateLosAngelesTime(); // by calling the function here, the data will already be there when the page loads
-setInterval(updateLosAngelesTime, 1000);
+updateParisTime(); // by calling the function here, the data will already be there when the page loads
+setInterval(updateParisTime, 1000);
 
 function updateSydneyTime(event) {
   //Sydney
